@@ -18,6 +18,8 @@ An attempt has been made to work around this problem;
 
 Unless a more reliable method is found for ensuring proper code execution,
   this module should not be used for production code.
+
+For further details, see the module README file.
 """
 import threading
 from Queue import PriorityQueue, Queue
@@ -186,16 +188,16 @@ class Worker(object):
 class Fetcher(object):
     """Manages repeated attempts to fetch locations.
     
-    Locations are added via the `add` method.
-    
-    `fetch` is a function which will be called to fetch a location.
+        Locations are added via the `add` method.
+        
+        `fetch` is a function which will be called to fetch a location.
 
-    `results` is a Queue to which successfully fetched results will be `put`.
+        `results` is a Queue to which successfully fetched results will be `put`.
 
-    `Worker` is a function which generates worker functions
-      given a fetch function and other parameters;
-      see `pqueue_fetcher.Worker` for the signature
-      and for the definition of `success` and `adjust_priority`.
+        `Worker` is a function which generates worker functions
+          given a fetch function and other parameters;
+          see `pqueue_fetcher.Worker` for the signature
+          and for the definition of `success` and `adjust_priority`.
     """
     def __init__(self, fetch, threadcount,
                  results=None, timeout=0.1, Worker=Worker,

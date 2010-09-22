@@ -1,4 +1,4 @@
-from unittest import TestCase, main
+from unittest import defaultTestLoader, TestCase, main
 from Queue import Queue
 from pqueue_fetcher import Fetcher
 
@@ -7,6 +7,11 @@ logger = logging.getLogger('pqueue_fetcher test trace')
 logger.addHandler((type("NullHandler", (logging.Handler, object),
                         {'emit': lambda *args: None}))())
 trace = logger.debug
+
+def suite():
+    """Returns the module test suite."""
+    return defaultTestLoader.loadTestsFromTestCase(FetcherTester)
+
 
 class Location(object):
     """A location for which get attempts initially fail `failures` times.

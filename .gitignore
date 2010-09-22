@@ -1,1 +1,3 @@
 *.pyc
+pqueue_fetcher.egg-info
+dist
