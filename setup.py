@@ -41,7 +41,7 @@ setup(
     keywords = split_keywords("""
         threading multithreading networking queue priority_queue
         """),
-    requires = ['terminable_thread'],
+    install_requires = ['terminable_thread'],
     packages = ['pqueue_fetcher', 'pqueue_fetcher.test'],
     package_dir = {'pqueue_fetcher': ''},
     test_suite = 'pqueue_fetcher.test.suite',
